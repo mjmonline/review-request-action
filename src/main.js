@@ -1,7 +1,7 @@
 const core = require("@actions/core");
 const { context, GitHub } = require("@actions/github");
 
-export async function run() {
+async function run() {
   try {
     const repoToken = core.getInput("repo-token", { required: true }),
       issue: { owner: string, repo: string, number: number } = context.issue;
