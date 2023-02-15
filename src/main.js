@@ -3,8 +3,8 @@ const { context, GitHub } = require("@actions/github");
 
 async function run() {
   try {
-    const repoToken = core.getInput("repo-token", { required: true }),
-      issue: { owner: string, repo: string, number: number } = context.issue;
+    const repoToken = core.getInput("repo-token", { required: true });
+    const issue = context.issue;
 
     const client = new GitHub(repoToken);
 
