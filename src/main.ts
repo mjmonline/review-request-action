@@ -7,11 +7,6 @@ export async function run() {
       repoToken = core.getInput('repo-token', { required: true }),
       issue: { owner: string; repo: string; number: number } = context.issue
 
-    if (context.payload.action !== 'opened') {
-      console.log('No pull request was opened, skipping')
-      return
-    }
-
     const client = new GitHub(repoToken)
 
     const reviewers = core.getInput('reviewers').split(',').map(a => a.trim())
